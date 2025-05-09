@@ -10,10 +10,15 @@
     <!--
       Header: Cabezera
       Nav: barra de navegación
-      Aside: contenido lateral
+      Aside: contenido lateral 
+        (Antes del main sale a la izquierda, despues del main a la derecha)
+        (Pero si es parte central debe ir dentro del main, y para definir izquierda o derecha seria con el header)
       Section: seccion de una pagina
       Main: Contenido principal del sitio web
       Footer: Pie de pagina del sitio web
+      Article: Articulo independiente, un texto grande que contine texto mas pequeños
+      Video: Contenido multimedia
+      Img: Imagen
     -->
     <nav>
       <div>
@@ -23,16 +28,71 @@
         <p>Cursos</p>
       </div>
     </nav>
+    <aside>
+      <div>
+        <h1>Contenido de lado</h1>
+        <p>Fuera del main a la izquierda</p>
+      </div>
+    </aside>
     <main>
       <header>
         <h1>Formulario de registro</h1>
       </header>
       <section>
         <form action="">
-          <label for="">Nombre</label>
-          <input type="text">
+          <div>
+            <label for="Nombre">Nombre</label>
+            <input name="Nombre" type="text">
+          </div>
+          <div>
+            <label for="Apellido">Apellido</label>
+            <input name="Apellido" type="text">
+          </div>
+          <div>
+            <label for="Edad">Edad</label>
+            <input name="Edad" type="number">
+          </div>
+          <div>
+            <label for="Email">Email</label>
+            <input name="Email" type="email">
+          </div>
+          <div>
+            <label for="Fecha">Fecha</label>
+            <input name="Fecha" type="date">
+          </div>
+          <div>
+            <label for="Contraseña">Contraseña</label>
+            <input name="Contraseña" type="password">
+          </div>
+          <div>
+            <input type="submit" value="Enviar">
+          </div>
         </form>
       </section>
+      <section>
+        <h2>Contenido Adicional</h2>
+        <article>
+          <p>Contenido 1</p>
+          <p>Contenido Adicional</p>
+        </article>
+      </section>
+      <aside>
+        <div>
+          <h1>Contenido de lado</h1>
+          <p>Dentro del main a la derecha</p>
+        </div>
+      </aside>
     </main>
+    <footer>
+      <div>
+        <p>Derechos reservados</p>
+      </div>
+      <div>
+        Politica de privacidad
+      </div>
+      <div>
+        Terminos y condiciones
+      </div>
+    </footer>
   </body>
 </html>
