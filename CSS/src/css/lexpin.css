@@ -1,9 +1,35 @@
+/*El "*" es un selector universal, selecciona todo los elementos en HTML*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
 /*Barra de navegacion*/
 nav {
   background-color: #0055ff;
   color: white;
   font-size: 25px;
   display: flex;
+  /*Eje Principal (Horizontal, Fila). Solo se puede usar si el elemento es flex*/
+  /*Maneja el eje principal, izquierda, derecha, medio y mas*/
+  justify-content: space-between;
+  /*Eje Secundario (Vertical, Columna). Solo se puede usar si el elemento es flex*/
+  /*Maneja el eje secundario, arriba, abajo, centro y mas*/
+  align-items: end;
+  /*Distancia entre el borde de la caja y su contenido. Margen Interno*/
+  /*
+    padding: 20px; 20 px en todas las direcciones
+    padding: 20px 0; 20 arriba y abajo, 0 derecha e izquierda
+    padding: 20px 0 20px 0; 20 arriba, 0 derecha, 20 abajo, 0 izquierda
+  */
+  padding: 10px;
+  /*
+    Distancia entre dos elementos. Margen Externo
+    margin
+  */
+  /*Radio de los bordes, se lee arriba izquierda, arriba derecha
+  abajo izquierda, abajo derecha*/
+  border-radius: 0 0 15px 15px;
 }
 
 /*
@@ -12,4 +38,6 @@ nav {
 */
 nav div {
   display: flex;
+  /*Espaciado entre los elementos de la fila o columna*/
+  gap: 20px
 }
