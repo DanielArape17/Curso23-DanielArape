@@ -75,6 +75,55 @@ nav div a:visited, nav div a:link {
 
 /*MAIN*/
 main {
-  height: 70vh;
-  min-height: 70vh;
+  background-color:black;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+}
+
+/*
+  GRID
+  Grid es un tipo de Display que permite manejar
+  un sistema de filas y columnas
+*/
+
+header {
+  height: 80vh;
+  min-height: 80vh;
+  background-color: aqua;
+  display: grid;
+  /*
+    grid-template-columns: 50% 50%;
+    1fr es una fraccion y es mas recomendable de %
+    Cuando se trata de columnas iguales/equitativas, en caso de ser dispare no
+    grid-template-columns: 1fr 1fr;
+    repeat es una funcion que hace todo mas facil ya repite cuantos fr quiero para mis columanas
+  */
+  grid-template-columns: repeat(2, 1fr);
+  /*
+    En el caso de grid el justify content y el
+    aling items cambian en la funcion de ser
+    ejes secundario y primario
+  */
+  border-radius: 25px;
+  /*eje principal*/
+  justify-items: center;
+  /*eje secundario*/
+  align-content: center;
+  gap: 20px;
+}
+
+header > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+header > div > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5 px;
+  text-align: center;
 }
