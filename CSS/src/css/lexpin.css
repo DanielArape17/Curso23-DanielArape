@@ -5,6 +5,16 @@
   font-family: "Space Grotesk", sans-serif;
 }
 
+/*
+  Medidas
+  px: pixeles (Absoluta)
+  %: porcentaje (relativa)
+  em: tamaño de la fuente del elemento padre
+  rem: tamaño de la fuente del elemento raíz
+  vh: porcentaje de la altura de la ventana
+  vw: porcentaje del ancho de la ventana
+*/
+
 /*Barra de navegacion*/
 nav {
   background-color: #0055ff;
@@ -93,7 +103,7 @@ main {
 
 header {
   height: 80vh;
-  min-height: 80vh;
+  min-height: 700px;
   display: grid;
   /*
     grid-template-columns: 50% 50%;
@@ -102,7 +112,7 @@ header {
     grid-template-columns: 1fr 1fr;
     repeat es una funcion que hace todo mas facil ya repite cuantos fr quiero para mis columanas
   */
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   /*
     En el caso de grid el justify content y el
     aling items cambian en la funcion de ser
@@ -152,6 +162,10 @@ header::before {
   border-radius: 25px;
   border: 5px solid white;
   box-shadow: 10px 5px 12px 5px rgba(0, 0, 0, 1);}
+
+.menu-responsive{
+  display: none;
+}
 
 header > div {
   display: flex;
@@ -236,5 +250,42 @@ p,h1,h2,h3,h4,h5,h6 {
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  p {
+    color: rgb(97, 190, 20)
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  p {
+    color: blue
+  }
+  header {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .menu-movil{
+    display: none;
+  }
+  .menu-responsive{
+    display: block;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  p {
+    color: green
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  p {
+    color: yellow
   }
 }
