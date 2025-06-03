@@ -1,0 +1,17 @@
+/* Mixins
+  Los mixins son funciones que se pueden reutilizar en el código
+  En palabras más simples, son fragmentos de código que se pueden reutilizar en
+  diferentes partes del proyecto
+
+@mixin flex($direccion: row, $justificacion: center, $alineacion: center, $gap)
+  display: flex
+  flex-direction: $direccion
+  justify-content: $justificacion
+  align-items: $alineacion
+  gap: $gap
+
+@mixin estilizado ($color, $tamano, $padding, $margen)
+  color: $color
+  font-size: $tamano
+  padding: $padding
+  margin: $margen

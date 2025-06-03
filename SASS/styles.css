@@ -1,0 +1,26 @@
+@charset "UTF-8";
+/* Mixins
+ * Los mixins son funciones que se pueden reutilizar en el código
+ * En palabras más simples, son fragmentos de código que se pueden reutilizar en
+ * diferentes partes del proyecto */
+/* Variables */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: blue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+nav div {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}/*# sourceMappingURL=styles.css.map */
