@@ -1,16 +1,18 @@
+/* Importacion
 @import "./components/_mixings"
-  
+
 /* Variables
 $color-principal: blue
 $color-texto: white
 
 *
-  margin: 0
   padding: 0
+  margin: 0
 
 nav
   background-color: $color-principal
-  @include flex(row, space-between, center, null)
+  @include flex(row, space-between, center, 0px)
+  @include estilizado($color-texto, 20px, 10px 20px, null)
   div
     color: $color-texto
-    @include flex(row, center, center, 10px)
+    @include flex(row, center, center, 12px)
