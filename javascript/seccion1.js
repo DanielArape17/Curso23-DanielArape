@@ -228,3 +228,5 @@ let input = prompt("Ingrese un número entre 1 y 10:");
   3. Crea un código que le pida un numero entre 1 y 12 e imprima el nombre del mes correspondiente.
   (1 = enero, 2 = febrero, etc.). Si el número no está entre 1 y 12, imprime "Número no válido".
 */
+
+
