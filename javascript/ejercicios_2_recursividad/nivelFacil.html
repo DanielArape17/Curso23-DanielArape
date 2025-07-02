@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nivel Facil</title>
+</head>
+<body>
+  <script>
+    //  Nivel fácil:
+    //1. Crea una función recursiva que imprima los números pares del 0 al 100.
+
+    function imprimirNumerosPares(num){
+      if (num <= 100){
+        if(num % 2 === 0){
+          console.log(num);
+        } 
+        imprimirNumerosPares(num + 1);
+        return
+      } 
+    }
+
+    imprimirNumerosPares(0)
+
+  </script>
+</body>
+</html>

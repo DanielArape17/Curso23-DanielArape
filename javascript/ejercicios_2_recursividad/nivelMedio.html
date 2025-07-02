@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nivel Medio</title>
+</head>
+<body>
+  <script>
+    /*
+      Nivel medio:
+      2. Crea una función que reciba un array de frutas e imprima uno a uno cada fruta.
+    */
+
+    const frutas = ["🍇", "🥝", "🍉", "🍊", "🍒", "🍍", "🍎", "🍐", "🥥"]
+    let i = 0    
+
+    function imprimirFrutasRecursivas(frutas){
+      console.log(frutas[i])
+      imprimirFrutasRecursivas(i + 1)
+      return
+    }
+
+    imprimirFrutasRecursivas()
+  </script>
+</body>
+</html>
