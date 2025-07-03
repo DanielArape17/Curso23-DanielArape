@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+      Nivel difícil:
+      3. Crea una función recursiva que calcule el factorial de un número dado.
+    */
+
+    function calcularFactorialRecursivo(num){
+      if(num > -1){
+        if(num === 1 || num === 0){
+          return 1
+        }
+        else {
+          console.log("num: " + num)     
+          return num * calcularFactorialRecursivo(num - 1)
+        }
+      }
+      else{
+        return console.log("No se puede un factorial negativo")
+      }
+    }
+    
+    console.log(calcularFactorialRecursivo(5))
+
+  </script>
+</body>
+</html>

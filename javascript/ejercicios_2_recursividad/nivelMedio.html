@@ -12,16 +12,18 @@
       2. Crea una función que reciba un array de frutas e imprima uno a uno cada fruta.
     */
 
-    const frutas = ["🍇", "🥝", "🍉", "🍊", "🍒", "🍍", "🍎", "🍐", "🥥"]
-    let i = 0    
+    const frutas = ["🍇", "🥝", "🍉", "🍊", "🍒", "🍍", "🍎", "🍐", "🥥"]  
+    let i = 0
 
-    function imprimirFrutasRecursivas(frutas){
-      console.log(frutas[i])
-      imprimirFrutasRecursivas(i + 1)
+    function imprimirFrutasRecursivas(i, frutas){
+      if (i < frutas.length){
+        console.log(frutas[i])
+        imprimirFrutasRecursivas(i + 1, frutas)
+      }
       return
     }
 
-    imprimirFrutasRecursivas()
+    imprimirFrutasRecursivas(i, frutas)
   </script>
 </body>
 </html>

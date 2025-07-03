@@ -139,5 +139,10 @@ imprimirNumerosRecursivo(0); // Llama a la función para iniciar la recursión
 
   Nivel experto:
   4. Crea una función recursiva que imprima la sucesión de Fibonacci hasta un número dado.
+
+  Extra
+  5. Ejercicio extra de dificultad media
+    Crea una función recursiva que basado en un array de notas, te muestre el promedio.
+
 */
 
