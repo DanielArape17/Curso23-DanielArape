@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Ejercicio
+    // Recorrer un array de arreglos y sumar sus elementos
+    const numeros = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+
+    let suma = 0
+
+    for (let arrayNumero of numeros){
+      suma = 0
+      for (let numero of arrayNumero){
+        suma += numero;
+      }
+      console.log(suma);
+    }
+
+  </script>
+</body>
+</html>

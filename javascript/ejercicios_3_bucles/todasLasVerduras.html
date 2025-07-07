@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //Imprime todas las verduras.
+    //3. Según el objeto anterior, imprime todas las verduras, frutas y carnes.
+
+    const objeto = {
+      verduras: ["lechuga", "pepino", "cebolla"],
+      frutas: ["manzana", "mazorca", "tomate"],
+      carnes: ["pollo", "res", "cerdo"]}
+
+    for (let arrayObjeto in objeto){
+      console.log(arrayObjeto)
+      for (let productos of objeto[arrayObjeto]){
+        console.log(productos)
+      }
+      console.log("\n")
+    }
+
+    
+
+  </script>
+</body>
+</html>
