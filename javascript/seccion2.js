@@ -223,3 +223,63 @@ do {
 // Ejercicio
 // Recorrer un array de arreglos y sumar sus elementos
 const numeros = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+
+/*
+  Que son los prototipos y como funcionan
+  Los prototipos son una característica de JavaScript que permite la herencia y la reutilización de código.
+  Cada objeto en JavaScript tiene un prototipo, que es otro objeto del cual hereda propiedades y métodos.
+  Puedes agregar propiedades y métodos a un prototipo para que todos los objetos que heredan de
+  ese prototipo tengan acceso a ellos.
+*/
+let aviones = [
+  { marca: "Boeing", modelo: "747" },
+  { marca: "Airbus", modelo: "A380" },
+  { marca: "Cessna", modelo: "172" },
+];
+
+console.log(aviones.length)
+
+/*
+  Metodos de strings
+  Los métodos de strings son funciones que se pueden aplicar a cadenas de texto para realizar diversas operaciones.
+  Algunos de los métodos más comunes son:
+  - `toUpperCase()`: Convierte la cadena a mayúsculas.
+  - `toLowerCase()`: Convierte la cadena a minúsculas.
+  - `substring()`: Extrae una parte de la cadena.
+  - `indexOf()`: Busca la posición de un carácter o subcadena en la cadena
+  - `replace()`: Reemplaza una parte de la cadena por otra.
+  - `split()`: Divide la cadena en un array de subcadenas.
+  - `trim()`: Elimina los espacios en blanco al inicio y al final de la cadena.
+  - `includes()`: Verifica si una subcadena está presente en la cadena.
+  - `charAt()`: Devuelve el carácter en una posición específica.
+  - `length`: Propiedad que devuelve la longitud de la cadena.
+  - `startsWith()`: Verifica si la cadena comienza con una subcadena específica.
+  - `endsWith()`: Verifica si la cadena termina con una subcadena específica.
+  - `repeat()`: Repite la cadena un número específico de veces.
+  - `concat()`: Une dos o más cadenas.
+*/
+let texto = "  Hola, JavaScript!  ";
+console.log(texto.toUpperCase()); // Convierte a mayúsculas
+console.log(texto.toLowerCase()); // Convierte a minúsculas
+console.log(texto.substring(2, 10)); // Extrae una parte de la cadena
+console.log(texto.indexOf("JavaScript")); // Busca la posición de "JavaScript"
+console.log(texto.replace("JavaScript", "mundo")); // Reemplaza "JavaScript" por "mundo"
+console.log(texto.replaceAll(" ", "")); // Reemplaza todos los espacios en blanco por nada
+console.log(texto.split(", ")); // Divide la cadena en un array
+console.log(texto.trim()); // Elimina los espacios en blanco al inicio y al final
+console.log(texto.includes("Hola")); // Verifica si "Hola" está presente
+console.log(texto.charAt(0)); // Devuelve el carácter en la posición 0
+console.log(texto.length); // Devuelve la longitud de la cadena
+console.log(texto.startsWith("  Hola")); // Verifica si comienza con "  Hola"
+console.log(texto.endsWith("!  ")); // Verifica si termina con "!
+console.log(texto.repeat(2)); // Repite la cadena dos veces
+console.log(texto.concat(" ¡Bienvenido!")); // Une " ¡Bienvenido!" a la cadena original
+
+// Ejercicios de strings
+/*
+  1. Crea una función que reciba un string pero retorne cuantas palabras tiene.
+  2. Crea una función que reciba un string y cuente cuantas vocales tiene
+  3. Crea una función que reciba un string y retorne el string al revés.
+  4. Crea una función que reciba un string y retorne si este es un palíndromo o no.
+*/
+

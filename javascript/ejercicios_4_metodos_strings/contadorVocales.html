@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //2. Crea una función que reciba un string y cuente cuantas vocales tiene
+
+    let texto = "El profe Juan dejo tarea";
+
+    function contarVocales(texto){
+      let contador = 0;
+      let letra = "";
+      for (let i = 0; i < texto.length; i++){
+        letra = texto.charAt(i).toLowerCase();
+        if (letra === "a" || letra === "e" || letra === "i" || letra === "o" || letra === "u"){
+          contador += 1;
+        } 
+      } 
+      return contador
+    }
+
+    console.log(contarVocales(texto))
+
+  </script>
+</body>
+</html>

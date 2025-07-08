@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 3. Crea una función que reciba un string y retorne el string al revés.
+
+    let texto = "El profe Juan dejo tarea";
+
+    function dereves(texto){
+
+      let nuevoTexto = 0;
+
+      for(let i = texto.length; i >= -1; i--){
+        nuevoTexto +=  texto.charAt(i)
+      }
+      
+      return nuevoTexto
+    }
+
+    console.log(dereves(texto))
+
+  </script>
+</body>
+</html>

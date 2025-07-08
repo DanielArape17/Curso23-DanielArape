@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 4. Crea una función que reciba un string y retorne si este es un palíndromo o no.
+
+    let texto = "oso";
+
+    function palindromo(texto){
+
+      let nuevoTexto = "";
+
+      for(let i = texto.length; i >= -1; i--){
+        nuevoTexto += texto.charAt(i)
+      } 
+
+      if (texto == nuevoTexto){
+        return console.log("Es palindromo")
+      }
+      else{
+        return console.log("No es palindromo")
+      }
+      
+    }
+
+    console.log(palindromo(texto))
+
+  </script>
+</body>
+</html>
