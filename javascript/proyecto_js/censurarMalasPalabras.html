@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Censurar Malas Palabras</title>
+</head>
+<body>
+  <script>
+    /*
+      1. Crea una función que reciba un texto o parrafo y verifique si contiene alguna las siguientes 
+      malas palabras:
+        - "tonto"
+        - "chispas"
+        - "recorcholis"
+        - "rayos"
+        - "caracoles"
+        - "cielos"
+      Si el texto contiene alguna de estas palabras, sustituye por "****" y retorna el texto modificado.
+      Si no contiene ninguna, retorna el texto original.
+    */
+
+    //Entradas
+    let malasPalabras = ["tonto", "chispas", "recorcholis", "rayos", "caracoles", "cielos"]
+    let texto = "¡Recórcholis, qué tonto me siento al ver los rayos y no recordar comprar chispas de chocolate, cielos, y ahora solo como caracoles!"
+    
+    // Modificar texto
+    malasPalabras.forEach((malaPalabra) =>{
+      
+      texto = texto.replaceAll(malaPalabra, "***")
+    })
+    
+    console.log(texto)
+
+    
+
+    
+  </script>
+</body>
+</html>
