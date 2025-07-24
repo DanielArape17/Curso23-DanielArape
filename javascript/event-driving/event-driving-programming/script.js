@@ -1,11 +1,18 @@
+// Document Object Model (DOM) y Programación Orientada a Eventos (POE):
+
 /**
- * Selecting elements:
- * 
- * The querySelector() method returns the first element that matches the specified selector in the document.
- * I.e.:
- * - document.querySelector("h1") returns the first <h1> element in the document.
- * - document.querySelector("#title") returns the element with id="title" in the document.
- * - document.querySelector(".itemList") returns the first element with class="itemList" in the document.
+ * Recuperar elementos desde el DOM
+ *
+ * El método querySelector() devuelve el primer elemento que coincide con el selector especificado en el documento.
+ * El selector especificado puede ser un nombre de elemento HTML, un nombre de clase, un nombre de ID o un selector CSS.
+ *
+ * Por ejemplo:
+ * - document.querySelector("p") devuelve el primer elemento <p> en el documento
+ * - document.querySelector("#title") devuelve el elemento con el ID "title"
+ * - document.querySelector(".message") devuelve el primer elemento con la clase "message" en el documento
+ *
+ * Se trata de una herramienta mucho más versátil que el uso de getElementById() y getElementsByClassName().
+ * quienes poseen comportamientos similares.
  */
 
 const title = document.querySelector("#title");
@@ -16,80 +23,136 @@ const addItemBtn = document.querySelector("#addItemBtn");
 const toggleClassBtn = document.querySelector("#toggleClassBtn");
 const itemList = document.querySelector("#itemList");
 
+const userForm = document.querySelector("#userForm");
+const nameInput = document.querySelector("#nameInput");
+const emailInput = document.querySelector("#emailInput");
+const submitFormBtn = document.querySelector("#submitFormBtn");
+const clearFormBtn = document.querySelector("#clearFormBtn");
+const fillFormBtn = document.querySelector("#fillFormBtn");
+
 /**
  * Event listeners:
  *
- * addEventListener(event, callback)
+ * Los event listeners son funciones que se ejecutan cuando un evento específico ocurre en un elemento del DOM.
+ * Algunos eventos comunes son:
+ * - click: Cuando se hace clic en un elemento
+ * - mouseover: Cuando el mouse pasa por encima de un elemento
+ * - mouseout: Cuando el mouse sale de un elemento
+ * - submit: Cuando se envía un formulario
+ * - change: Cuando el valor de un elemento cambia
  *
- * - event: The event to listen for (string).
- * - callback: The function to call when the event occurs (function).
- */
-
-/**
- * Forma 1:
- * function showOutput() {
- *  console.log("Button clicked!");
- * }
+ * El metodo addEventListener() se utiliza para agregar un event listener a un elemento del DOM.
+ * El mismo espera dos párametos:
+ * - event: El evento a escuchar.
+ * - callback: La función que debe ejecutarse cuando el evento ocurra.
  *
- * changeTextBtn.addEventListener("click", showOutput);
+ * El callback puede ser definido como una única función y asignado luego:
+ *
+ * ```
+ *    function callback() {
+ *      console.log("Button clicked!");
+ *    }
+ *
+ *    btn.addEventListener("click", callback);
+ * ```
+ *
+ * O enviado directamente como una función anónima:
+ *
+ * ```
+ *    btn.addEventListener("click", () => {
+ *      console.log("Button clicked!");
+ *    });
+ * ```
  */
-changeTextBtn.addEventListener("click", () =>{
-  console.log("tralala");
+
+// Botón que cambia su texto
+changeTextBtn.addEventListener("click", () => {
+  changeTextBtn.textContent = "¡Texto cambiado!";
 });
 
-changeTextBtn.addEventListener("click", () =>{
-  changeTextBtn.textContent = "Button clicked!"
-});
-
-/**
- * addEventListener permite hacer cualquier cosa tras registrar un evento. Incluso alterar la propiedad style de los elementos.
- * 
- * P.e.:
- * - changeColorBtn.style.backgroundColor = "blue"; <-- Para cambiar directamente una propiedad.
- * - changeColorBtn.classList.add("bg-blue-500"); <-- Para cambiar la clase de un elemento (.add / .remove) (TailwindCSS).
- */
-
+// Botón que cambia su color
 changeColorBtn.addEventListener("click", () => {
-  changeColorBtn.style.backgroundColor = "blue";
-  changeColorBtn.style.color = "white";
-  // Con Tailwind seria de la siguiente manera
-  // changeColorBtn.classList.add("bg-blue-500", "text-white");
-  // changeColorBtn.classList.remove("bg-blue-500", "text-white");
-});
-
-/* Opciones 3 con hexagecimal
-changeColorBtn.addEventListener("click", () => {
-  const color = "#000000";  // <-- Elige el que más te guste :D
+  const color = "#267D39"; // <-- ¡Puedes cambiarlo por otro color!
   changeColorBtn.style.backgroundColor = color;
   changeColorBtn.style.color = "white";
 });
-*/
 
+/**
+ * Nota adicional:
+ *
+ * Usa element.classList.add() o element.classList.remove() para agregar o quitar clases de
+ * TailwindCSS de un elemento.
+ * También puedes usar element.classList.toggle() para entre clases.
+ */
+
+// Botón que crea un nuevo elemento en el DOM
 addItemBtn.addEventListener("click", () => {
-  const newItem = document.createElement("li");
-  newItem.textContent = "New item"
-  itemList.appendChild(newItem);
-})
+  const newItem = document.createElement("li"); // <-- .createElement permite crear un nuevo elemento en el DOM
+  newItem.textContent = "Nuevo elemento";
+  itemList.appendChild(newItem); // <-- .appendChild permite agregar un nuevo elemento al DOM
+});
 
-//Toggle no solo agrega algo, sino que tambien puede retirarlo
-//Como un interruptor de luz
+// Botón que manipula las clases de otro elemento
 toggleClassBtn.addEventListener("click", () => {
   message.classList.toggle("highlight");
-  title.classList.toggle("highlight-2");
 
-  const status = message.classList.contains("highlight");
-  const status2 = title.classList.contains("highlight-2");
-  console.log(status, status2);
+  const status = message.classList.contains("highlight"); // <-- .contains devuelve `true` si el elemento tiene la clase especificada
 
   if (status) {
+    toggleClassBtn.textContent = "Desactivar Clase";
     message.textContent = message.textContent + " (highlighted)";
   } else {
-    message.textContent = message.textContent.replace(" (highlighted)", "");
-  }
-
-  if (status2) {
-    toggleClassBtn.style.backgroundColor = "red";
-  } else {
-    toggleClassBtn.style.backgroundColor = "gray";
+    toggleClassBtn.textContent = "Activar Clase";
+    message.textContent = message.textContent.replace(" (highlighted)", ""); // <-- .replace reemplaza el texto especificado por otro
   }
 });
+
+function createNewElementBasedOnInput() {
+  const newElement = document.createElement("p");
+  const inputId = this.id;
+
+  newElement.textContent = `El focus se produjo en el input ${inputId}`;
+  document.body.appendChild(newElement);
+}
+
+nameInput.addEventListener("focus", createNewElementBasedOnInput);
+emailInput.addEventListener("focus", createNewElementBasedOnInput);
+
+floatInputBtn.addEventListener("click", () => {
+  const input = prompt("Ingresa un texto");
+
+  const newElement = document.createElement("p");
+  newElement.textContent = input;
+  document.body.appendChild(newElement);
+});
+
+clearFormBtn.addEventListener("click", () => {
+  nameInput.value = "";
+  emailInput.value = "";
+});
+
+fillFormBtn.addEventListener("click", () => {
+  nameInput.value = "John Doe";
+  emailInput.value = "s4T4C@example.com";
+});
+
+userForm.addEventListener("submit", () => {
+  const name = nameInput.value;
+  const email = emailInput.value;
+  if (name === "" || email === "") {
+    alert("Por favor, completa todos los campos.");
+    return;
+  }
+  alert(
+    `¡Felicidades, ${name}! ¡Te has ganado un iPhone 16! Ingresa al enlace que tedejamos en tu correo (${email}).`
+  );
+});
+
+// Ejercicios de POE
+// Realizar una calculadora que permita sumar, restar, multiplicar y dividir dos números ingresados por el usuario a través de un formulario.
+// El formulario debe contar con un botón para limpiar sus campos.
+// El resultado debe de desplegarse en un tercer input con propiedad readonly.
+// Si el usuario intenta enviar el formulario sin ingresar los dos números, mostrar un mensaje de error (*) indicando que todos los campos son obligatorios.
+// El estudiante tiene total libertad para definir como recolectará los datos que definan el tipo de operación a realizar.
+
+// (*) Los mensajes de error se pueden mostrar con alert, pero el primero en mostrarlos en el DOM con createElement, le pone nombre al gatito por 3 días.
