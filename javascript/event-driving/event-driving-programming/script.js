@@ -23,6 +23,9 @@ const addItemBtn = document.querySelector("#addItemBtn");
 const toggleClassBtn = document.querySelector("#toggleClassBtn");
 const itemList = document.querySelector("#itemList");
 
+const alertBtn = document.querySelector("#alertBtn");
+const promptBtn = document.querySelector("#promptBtn");
+
 const userForm = document.querySelector("#userForm");
 const nameInput = document.querySelector("#nameInput");
 const emailInput = document.querySelector("#emailInput");
@@ -107,6 +110,26 @@ toggleClassBtn.addEventListener("click", () => {
   }
 });
 
+/**
+ * Alerts y Prompts
+ * 
+ * Los alert() y prompt() son funciones que se utilizan para mostrar alertas y prompts en la pantalla del navegador.
+ * Se trata de pequeños avisos que se muestran en la parte superior de la pantalla.
+ * No son lo más recomendable de utilizar según los conceptos de UI/UX, pero hacen el trabajo.
+ */
+
+// Botón que muestra un alert
+alertBtn.addEventListener("click", () => {
+  alert("¡Alerta!");
+});
+
+// Botón que muestra un prompt
+promptBtn.addEventListener("click", () => {
+  const input = prompt("Ingresa un texto"); // <-- Es igual que alert, pero te permite capturar el texto ingresado por el usuario
+  alert(input);
+});
+
+// Botón que crea un elemento en el DOM basado en el input que tenga el Focus (Descomentar las líneas 141 y 142 para probar)
 function createNewElementBasedOnInput() {
   const newElement = document.createElement("p");
   const inputId = this.id;
@@ -115,40 +138,52 @@ function createNewElementBasedOnInput() {
   document.body.appendChild(newElement);
 }
 
-nameInput.addEventListener("focus", createNewElementBasedOnInput);
-emailInput.addEventListener("focus", createNewElementBasedOnInput);
+// nameInput.addEventListener("focus", createNewElementBasedOnInput);
+// emailInput.addEventListener("focus", createNewElementBasedOnInput);
 
-floatInputBtn.addEventListener("click", () => {
-  const input = prompt("Ingresa un texto");
+/**
+ * Manipulación del DOM (Document Object Model) en Formularios
+ * 
+ * Los formularios son elementos que permiten a los usuarios enviar datos a un servidor.
+ */
 
-  const newElement = document.createElement("p");
-  newElement.textContent = input;
-  document.body.appendChild(newElement);
-});
-
+// Botón que limpia el formulario interactúando con sus inputs
 clearFormBtn.addEventListener("click", () => {
   nameInput.value = "";
   emailInput.value = "";
 });
 
+// Botón que llena el formulario con valores predefinidos
 fillFormBtn.addEventListener("click", () => {
   nameInput.value = "John Doe";
   emailInput.value = "s4T4C@example.com";
 });
 
-userForm.addEventListener("submit", () => {
+/**
+ * Nota importante:
+ * 
+ * .textContent - permite obtener o establecer el texto de un elemento
+ * .value - permite obtener o establecer el valor de un input
+ */
+
+// Botón que envía el formulario
+// El addEventListener no se agrega el botón en sí, sino al formulario.
+// Como el botón en el HTML es de tipo submit, JS sabe que debe enviar el formulario y realizar las acciones correspondientes.
+userForm.addEventListener("submit", (event) => {
+  event.preventDefault();
   const name = nameInput.value;
   const email = emailInput.value;
+
   if (name === "" || email === "") {
     alert("Por favor, completa todos los campos.");
     return;
   }
   alert(
-    `¡Felicidades, ${name}! ¡Te has ganado un iPhone 16! Ingresa al enlace que tedejamos en tu correo (${email}).`
+    `¡Felicidades, ${name}! ¡Te has ganado un iPhone 16! Ingresa al enlace que tedejamos en tu correo (${email}). Para nada es un virus.`
   );
 });
 
-// Ejercicios de POE
+// Ejercicio de POE
 // Realizar una calculadora que permita sumar, restar, multiplicar y dividir dos números ingresados por el usuario a través de un formulario.
 // El formulario debe contar con un botón para limpiar sus campos.
 // El resultado debe de desplegarse en un tercer input con propiedad readonly.
