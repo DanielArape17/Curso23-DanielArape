@@ -26,14 +26,38 @@ const btnMinus = document.getElementById("btnMinus");
 const btnTimes = document.getElementById("btnTimes");
 const btnDivided = document.getElementById("btnDivided");
 const btnEquals = document.getElementById("btnEquals");
+const btnPoint = document.getElementById("btnPoint");
+const btnDelete = document.getElementById("btnDelete")
+const btnAC = document.getElementById("btnAC")
 
 //Variables JS
-const symbols = ["+", "-", "*", "÷"];
+const symbols = ["+", "-", "*", "/"];
+
+const evaluateBtnPress = () =>{
+  let dontPress = false
+  let calculateInputValue = calculateInput.value
+  let lengthCalculateInputValue = calculateInputValue.length
+  let lastCharacter = calculateInputValue.charAt(lengthCalculateInputValue - 1)
+
+  symbols.forEach(symbol =>{
+    if(symbol === lastCharacter){
+      dontPress = true
+    }
+  })
+  return dontPress
+}
 
 const btnPress = (event) =>{
   const btn = event.target;
   const buttonText = btn.textContent;
-  calculateInput.value += buttonText;
+
+  if(!evaluateBtnPress()){
+    calculateInput.value += buttonText;
+  }
+  if(evaluateBtnPress() && buttonText !== "X" && buttonText !== "+" && buttonText !== "-" && buttonText !== "÷"){
+    calculateInput.value += buttonText;
+  }
+
   console.log(buttonText);
 }
 
@@ -47,20 +71,38 @@ btnSeven.addEventListener("click", btnPress);
 btnEight.addEventListener("click", btnPress);
 btnNine.addEventListener("click", btnPress);
 btnZero.addEventListener("click", btnPress);
+btnPoint.addEventListener("click", btnPress)
 
 btnPlus.addEventListener("click", btnPress);
 btnMinus.addEventListener("click", btnPress);
 btnTimes.addEventListener("click", btnPress);
 btnDivided.addEventListener("click", btnPress);
 
+btnDelete.addEventListener("click", () =>{
+  const deleteLastCharacter = calculateInput.value;
+  calculateInput.value = deleteLastCharacter.slice(0, -1);
+});
+
+btnAC.addEventListener("click", () =>{
+  calculateInput.value = ""
+})
+
+
 
 userForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const calculate = calculateInput.value;
-
+  symbols.reverse()
+  
+  
+  
+  
   symbols.forEach((symbol) => {
+    console.log(`symbol: ${symbol}`)
     if(calculate.includes(symbol)){
-      let calculateArray = calculate.split(symbol);
+      calculateArray = calculate.split(symbol);
+      console.log(`calculateArray: ${calculateArray}`)
+      
       let numOne = Number(calculateArray[0]);
       let numTwo = Number(calculateArray[1]);
       let result;
@@ -71,14 +113,16 @@ userForm.addEventListener("submit", (event) => {
       else if(symbol === "-"){
         result = numOne - numTwo;
       }
-      else if(symbol === "*"){
+      else if(symbol === "X"){
         result = numOne * numTwo;
       }
       else if(symbol === "÷"){
         result = numOne / numTwo;
       }
+      calculateInput.value = result;
       const newElement = document.createElement("p");
-      newElement.textContent = result;
+      const record =  `${numOne} ${symbol} ${numTwo} = ${result}`
+      newElement.textContent = record;
       document.body.appendChild(newElement);
     }
   });
