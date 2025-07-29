@@ -3,40 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   <title>Document</title>
 </head>
 <body>
   <form action="" id="calculatorForm">
     <div>
-      <button type="button" id="btnOne">1</button>
-      <button type="button" id="btnTwo">2</button>
-      <button type="button" id="btnThree">3</button>
-      <button type="button" id="btnFour">4</button>
-      <button type="button" id="btnFive">5</button>
-      <button type="button" id="btnSix">6</button>
-      <button type="button" id="btnSeven">7</button>
-      <button type="button" id="btnEight">8</button>
-      <button type="button" id="btnNine">9</button>
-      <button type="button" id="btnZero">0</button>
-      <button type="button" id="btnPoint">.</button>
-    </div>
-    
-    <div>
-      <button type="button" id="btnPlus">+</button>
-      <button type="button" id="btnMinus">-</button>
-      <button type="button" id="btnTimes">X</button>
+      <button type="button" id="btnAC">AC</button>
+      <button type="button" id="btnDelete">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-delete-icon lucide-delete"><path d="M10 5a2 2 0 0 0-1.344.519l-6.328 5.74a1 1 0 0 0 0 1.481l6.328 5.741A2 2 0 0 0 10 19h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2z"/><path d="m12 9 6 6"/><path d="m18 9-6 6"/></svg>
+      </button>
       <button type="button" id="btnDivided">÷</button>
     </div>
 
     <div>
-      <button type="button" id="btnDelete">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-delete-icon lucide-delete"><path d="M10 5a2 2 0 0 0-1.344.519l-6.328 5.74a1 1 0 0 0 0 1.481l6.328 5.741A2 2 0 0 0 10 19h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2z"/><path d="m12 9 6 6"/><path d="m18 9-6 6"/></svg>
-      </button>
-      <button type="button" id="btnAC">AC</button>
+      <button type="button" id="btnSeven">7</button>
+      <button type="button" id="btnEight">8</button>
+      <button type="button" id="btnNine">9</button>
+      <button type="button" id="btnTimes">X</button>
+    </div>
+
+    <div>
+      <button type="button" id="btnFour">4</button>
+      <button type="button" id="btnFive">5</button>
+      <button type="button" id="btnSix">6</button>
+      <button type="button" id="btnMinus">-</button>
+    </div>
+
+    <div>
+      <button type="button" id="btnOne">1</button>
+      <button type="button" id="btnTwo">2</button>
+      <button type="button" id="btnThree">3</button>
+      <button type="button" id="btnPlus">+</button>
+    </div>
+    
+    <div>
+      <button type="button" id="btnZero">0</button>
+      <button type="button" id="btnPoint">.</button>
+      <button type="submit" id="btnEquals">=</button>
+    </div>
+
+    <div>
+      
+      
     </div>
 
     <input type="text" id="calculateInput">
-    <button type="submit" id="btnEquals">=</button>
+    
   </form>
   <script src="main.js"></script>
 </body>

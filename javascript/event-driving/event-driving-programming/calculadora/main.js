@@ -47,6 +47,25 @@ const evaluateBtnPress = () =>{
   return dontPress
 }
 
+const canPressPoint = () => {
+  const inputValue = calculateInput.value;
+  
+  if (inputValue === '') {
+    return true; 
+  }
+
+  // Me faltaba la funcion del punto en la calculadora
+  // Y viendo la clase de ayer pense que podia utilizar expresiones regulares
+  const symbols = inputValue.split(/[\+\-\X\÷]/);
+  const lastPart = symbols[symbols.length - 1];
+    
+    if (lastPart === '') {
+    return false; 
+  }
+  
+  return !lastPart.includes('.'); 
+};
+
 const btnPress = (event) =>{
   const btn = event.target;
   const buttonText = btn.textContent;
@@ -58,7 +77,16 @@ const btnPress = (event) =>{
     calculateInput.value += buttonText;
   }
 
-  console.log(buttonText);
+  if (buttonText === '.') {
+    if (canPressPoint()) {
+      if (calculateInput.value === '') {
+        calculateInput.value = '0.';
+      } else {
+        calculateInput.value += '.';
+      }
+    }
+    return; 
+  }
 }
 
 btnOne.addEventListener("click", btnPress);
