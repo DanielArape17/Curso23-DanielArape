@@ -38,3 +38,21 @@ regexNombre.test(nombre1); // true
   - Un correo
   - Una contraseña
 */
+
+/*
+  Realizar los siguientes programas
+
+  1) Crea un juego de piedra papel o tijera donde el usuario pueda jugar contra la computadora. Pero,
+  debes de tener un contador de partidas ganadas para cada jugar y partidas empatadas. Además de
+  tener un historial de las ultimas 5 partidas jugadas.
+
+  3) Crea un programa que permita al usuario realizar búsquedas en una lista de contactos.
+  La lista debe contener al menos 5 contactos con nombre y número de teléfono. El usuario
+  debe poder buscar por nombre y mostrar los resultados en pantalla.
+
+  2) Crea un Todo list (Lista de tareas) donde el usuario pueda agregar, eliminar y marcar 
+  como completadas las tareas. (Validar que el usuario no pueda agregar tareas vacias o
+  que utilicen caracteres especiales como !@#$%^&*()_+ etc.)
+
+  04/08/25
+*/
