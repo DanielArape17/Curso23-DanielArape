@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="">
+    <label for="">Nombre</label>
+    <input type="text" placeholder="Nombre" id="nombre">
+    <label for="">Correo</label>
+    <input type="email" placeholder="Correo" id="email">
+    <label for="">Contraseña</label>
+    <input type="password" placeholder="Contraseña" id="noTeMetas">
+    <button type="submit" onclick="guardarDatos()">Guardar localStorage</button>
+    <button type="button" onclick="guardarCookies()">Guardar Cookies</button>
+  </form>
+</body>
+
+<script>
+  
+  const nombre = document.getElementById("nombre");
+  const email = document.getElementById("email");
+  const noTeMetas = document.getElementById("noTeMetas");
+
+  const guardarDatos = () =>{
+    event.preventDefault();
+    localStorage.setItem("nombre", nombre.value);
+    localStorage.setItem("email", email.value);
+    localStorage.setItem("noTeMetas", noTeMetas.value);
+  }
+
+  const guardarCookies = () => {
+    event.preventDefault();
+    let fechaExpiracion = new Date();
+    fechaExpiracion.setTime(fechaExpiracion.getTime() + (7 * 24 * 60 * 60 * 1000)); // 7 dias en milisegundos
+    document.cookie = `nombre=${nombre.value}; expires=` + fechaExpiracion.toUTCString() + "; path=/";
+    document.cookie = `email=${email.value}; expires=` + fechaExpiracion.toUTCString() + "; path=/";
+    console.log(document.cookie);
+  }
+  
+</script>
+
+</html>
