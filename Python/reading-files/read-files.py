@@ -28,3 +28,4 @@ def read_file(file_path):
 
 path = "sample.txt"
 read_file(path)
+
